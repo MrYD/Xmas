@@ -48,14 +48,18 @@ namespace DxFramework
             Time++;
             if (Time%50==0)
             {
-                Santa.Add(new Rujura(0));
+                Santa.Add(new Rujura());
                 Santa[count].ComplexActionSender=count;
                 Santa[count].ClickedComplexAction = (object sender) =>
                 {
-                    Santa[(int)sender].dead();
-                    gun.reaction();
-                    gun.rest -= 1;
-                    score++;
+                    if (gun.rest <= 0) { }
+                    else
+                    {
+                        Santa[(int)sender].dead();
+                        gun.reaction();
+                        gun.rest -= 1;
+                        score++;
+                    }
                 };
                 count++;
             }

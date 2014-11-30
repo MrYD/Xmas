@@ -34,7 +34,7 @@ namespace DxFramework
 
             for (int i = 0; i < rests.Length; i++)
             {
-                if (i > rest)
+                if (i >= rest)
                     rests[i].isVisible = false;
                 else
                     rests[i].isVisible = true;
