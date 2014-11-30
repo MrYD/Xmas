@@ -10,9 +10,15 @@ C:\Users\Main\Desktop\ハッカソン\DxFramework\obj\Debug\DxFramework.pdb
 C:\Users\Main\Desktop\ハッカソン\DxFramework\obj\Debug\REVERSICharp.csprojResolveAssemblyReference.cache
 C:\Users\Main\Desktop\ハッカソン\DxFramework\bin\Debug\DxFramework.exe
 C:\Users\Main\Desktop\ハッカソン\DxFramework\bin\Debug\DxFramework.pdb
+<<<<<<< HEAD
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\bin\Debug\DxFramework.exe.config
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\obj\Debug\DxFramework.exe
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\obj\Debug\DxFramework.pdb
+=======
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\bin\Debug\DxFramework.exe.config
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\bin\Debug\DxFramework.exe
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\bin\Debug\DxFramework.pdb
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\obj\Debug\REVERSICharp.csprojResolveAssemblyReference.cache
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\obj\Debug\DxFramework.exe
 C:\Users\Onodera\SkyDrive\ドキュメント\ハッカソン\DxFramework\obj\Debug\DxFramework.pdb
+>>>>>>> 55c80a0f9fb54a538438ce4041e3657717f7b8bb
