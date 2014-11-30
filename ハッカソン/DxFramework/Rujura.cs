@@ -17,16 +17,17 @@ namespace DxFramework
 
         public override void update()
         {
+            if (deadcounter()>1)
+                this.GraphName = "resource/img/死んだルージュラ";
+            if (deadcounter() > 4)
+                this.GraphName = "resource/img/もっと死んだルージュラ";
             if (deadcounter()>10)
-            {
                 this.isVisible = false;
-            }
             base.update();
         }
 
         public void dead()
         {
-            this.GraphName = "resource/img/死んだルージュラ"; //死んだルージュラ
             deadcount = 0;
         }
 

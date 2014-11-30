@@ -1,4 +1,5 @@
-﻿using DxLibDLL;
+﻿using DxFramework.DxFrameWork;
+using DxLibDLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace DxFramework
 {
     class MenuScene : Scene
     {
+        public int score;
+
         public int count;
         public static MenuScene instance { get; private set; }
         public List<Rujura> Santa;
@@ -17,6 +20,7 @@ namespace DxFramework
         {
             init();
             instance = this;
+            score = 0;
         }
         public override void init()
         {
@@ -30,6 +34,12 @@ namespace DxFramework
             back.GraphName = "resource/img/back.png";
             var gun = new Graphic(1);
             gun.GraphName = "resource/img/guns.png";
+
+            var text = new Text(2);
+            text.FontHandle = DX.CreateFontToHandle(null,70,-1);
+            text.top = new Vector2(1200,700);
+            text.color = DX.GetColor(200,200,200);
+            text.updateAction = () => { text.text = "Score:" + score; };
         }
         public override void update()
         {
@@ -44,6 +54,7 @@ namespace DxFramework
                 Santa[count].ClickedComplexAction = (object sender) =>
                 {
                     Santa[(int)sender].dead();
+                    score++;
                 };
                 Santa[count].GraphName = "resource/img/ルージュラ.png";
             }
