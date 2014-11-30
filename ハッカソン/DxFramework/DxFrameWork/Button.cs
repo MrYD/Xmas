@@ -33,6 +33,7 @@ namespace DxFramework
         private int _TLight;
         private int _textFontHandle;
         private ComplexAction clickedComplexAction;
+
         public Button()
             : base()
         {
