@@ -13,7 +13,7 @@ namespace DxFramework
         public Vector2 bottom { get { return top + size; } set { top = value - size; } }
         public Vector2 size { get; set; }//実体
         public Vector2 mid { get { return top + size / 2; } set { top = value - size / 2; } }
-        private int graphHandle;
+        protected int graphHandle;
 
         public Graphic() : base(0) { top = new Vector2(0, 0); }
         public Graphic(int layer) : base(layer) { top = new Vector2(0, 0); }

@@ -26,7 +26,6 @@ namespace DxFramework
         {
             instance = this;
             Santa = new List<Rujura>();
-            Santa.Add(new Rujura(0));
             count = 0;
             Time = 0;
             instance = this;
@@ -45,18 +44,16 @@ namespace DxFramework
         {
             base.update();
             Time++;
-            if (Time%25==0)
+            if (Time%50==0)
             {
-                count++;
                 Santa.Add(new Rujura(0));
                 Santa[count].ComplexActionSender=count;
-                Santa[count].mid = new Vector2(DX.GetRand(1600),DX.GetRand(900));
                 Santa[count].ClickedComplexAction = (object sender) =>
                 {
                     Santa[(int)sender].dead();
                     score++;
                 };
-                Santa[count].GraphName = "resource/img/ルージュラ.png";
+                count++;
             }
         }
         public int Time { get; set; }
