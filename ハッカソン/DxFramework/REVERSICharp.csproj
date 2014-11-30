@@ -51,6 +51,7 @@
     <Compile Include="DxFrameWork\Scene.cs" />
     <Compile Include="DxFrameWork\test.cs" />
     <Compile Include="DxFrameWork\Vector2.cs" />
+    <Compile Include="Rujura.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -11,7 +11,7 @@ namespace DxFramework
     {
         public int count;
         public static MenuScene instance { get; private set; }
-        public List<Button> Santa;
+        public List<Rujura> Santa;
         public MenuScene()
             : base()
         {
@@ -21,8 +21,8 @@ namespace DxFramework
         public override void init()
         {
             instance = this;
-            Santa = new List<Button>();
-            Santa.Add(new Button());
+            Santa = new List<Rujura>();
+            Santa.Add(new Rujura(0));
             count = 0;
             Time = 0;
             instance = this;
@@ -38,12 +38,12 @@ namespace DxFramework
             if (Time%50==0)
             {
                 count++;
-                Santa.Add(new Button(0));
+                Santa.Add(new Rujura(0));
                 Santa[count].ComplexActionSender=count;
                 Santa[count].mid = new Vector2(DX.GetRand(1600),DX.GetRand(900));
                 Santa[count].ClickedComplexAction = (object sender) =>
                 {
-                    Santa[(int)sender].isVisible = false;
+                    Santa[(int)sender].dead();
                 };
                 Santa[count].GraphName = "resource/img/ルージュラ.png";
             }
