@@ -26,6 +26,10 @@ namespace DxFramework
             count = 0;
             Time = 0;
             instance = this;
+            var back = new Graphic(-1);
+            back.GraphName = "resource/img/back.png";
+            var gun = new Graphic(1);
+            gun.GraphName = "resource/img/guns.png";
         }
         public override void update()
         {
@@ -34,7 +38,7 @@ namespace DxFramework
             if (Time%50==0)
             {
                 count++;
-                Santa.Add(new Button());
+                Santa.Add(new Button(0));
                 Santa[count].ComplexActionSender=count;
                 Santa[count].mid = new Vector2(DX.GetRand(1600),DX.GetRand(900));
                 Santa[count].ClickedComplexAction = (object sender) =>
