@@ -9,7 +9,7 @@ namespace DxFramework
 {
     class Odoshishi : Button
     {
-        public Odoshishi() : base() 
+        public Odoshishi(int layer) : base(layer) 
         {
             deadcount = -1;
             deadFlag = false;

@@ -9,7 +9,7 @@ namespace DxFramework
 {
     class Rujura : Button
     {
-        public Rujura() : base() 
+        public Rujura(int layer) : base(layer) 
         {
             deadcount = -1;
             deadFlag = false;
@@ -26,7 +26,7 @@ namespace DxFramework
         public override void update()
         {
             if (!isVisible) return;
-            this.exRate += 0.01;
+            this.exRate += 0.01*GameScene.instance.Time/500;
             int frsf = deadcounter();
             if (frsf>1)
                 this.GraphName = "resource/img/死んだルージュラ.png";

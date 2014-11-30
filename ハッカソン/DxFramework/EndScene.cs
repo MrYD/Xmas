@@ -1,4 +1,5 @@
-﻿using DxLibDLL;
+﻿using DxFramework.DxFrameWork;
+using DxLibDLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace DxFramework
 {
     class EndScene : Scene
     {
+        private Graphic back;
+        private Text text;
 
         public EndScene()
             : base()
@@ -19,8 +22,14 @@ namespace DxFramework
         }
         public override void init()
         {
-            var back = new Graphic();
+            back = new Graphic();
             back.GraphName = "resource/img/GameEnd.png";
+            text = new Text(1);
+            text.FontHandle = DX.CreateFontToHandle(null, 70, -1);
+            text.top = new Vector2(1200, 700);
+            text.color = DX.GetColor(240, 240, 240);
+            text.updateAction = () => { text.text = "Score:" + GameScene.instance.score; };
+           
         }
         public override void update()
         {

@@ -11,7 +11,6 @@ namespace DxFramework
     class GameScene : Scene
     {
         public int score;
-
         public int rcount;
         public int ocount;
         public static GameScene instance { get; private set; }
@@ -23,45 +22,49 @@ namespace DxFramework
         {
             init();
             instance = this;
-            score = 0;
         }
 
         public override void init()
         {
+            score = 0;
             instance = this;
             Santa = new List<Rujura>();
             Tonakai = new List<Odoshishi>();
             rcount = 0;
-            ocount= 0;
+            ocount = 0;
             Time = 0;
             instance = this;
-            var back = new Graphic(-20);
+            var back = new Graphic(-10000);
             back.GraphName = "resource/img/back.png";
             gun = new Gun(1);
             gun.GraphName = "resource/img/gun.png";
 
             var text = new Text(2);
-            text.FontHandle = DX.CreateFontToHandle(null,70,-1);
-            text.top = new Vector2(1200,700);
-            text.color = DX.GetColor(240,240,240);
+            text.FontHandle = DX.CreateFontToHandle(null, 70, -1);
+            text.top = new Vector2(1200, 700);
+            text.color = DX.GetColor(240, 240, 240);
             text.updateAction = () => { text.text = "Score:" + score; };
         }
         public override void update()
         {
             base.update();
             Time++;
-            if (DX.GetRand(100-Time/50)==0)
+
+            int a = 100 - Time / 50;
+            if (a <= 50)
             {
-                Santa.Add(new Rujura());
-                Santa[rcount].ComplexActionSender=rcount;
+                a = 50;
+            }
+            if (DX.GetRand(a) == 0)
+            {
+                Santa.Add(new Rujura(-rcount));
+                Santa[rcount].ComplexActionSender = rcount;
                 Santa[rcount].ClickedComplexAction = (object sender) =>
                 {
                     if (gun.rest <= 0) { }
                     else
                     {
                         Santa[(int)sender].dead();
-                        gun.reaction();
-                        gun.rest -= 1;
                         score++;
                     }
                 };
@@ -69,7 +72,7 @@ namespace DxFramework
             }
             if (Time % 400 == 0)
             {
-                Tonakai.Add(new Odoshishi());
+                Tonakai.Add(new Odoshishi(-rcount));
                 Tonakai[ocount].ComplexActionSender = ocount;
                 Tonakai[ocount].ClickedComplexAction = (object sender) =>
                 {
@@ -77,14 +80,16 @@ namespace DxFramework
                     else
                     {
                         Tonakai[(int)sender].dead();
-                        gun.reaction();
-                        gun.rest -= 1;
                         score--;
                     }
                 };
                 ocount++;
             }
-
+            if (BasicInput.mouse.left.up)
+            {
+                gun.rest--;
+                gun.reaction();
+            }
             if (BasicInput.mouse.right.up)
             {
                 gun.action();
