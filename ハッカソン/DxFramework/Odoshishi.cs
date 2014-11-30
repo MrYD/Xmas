@@ -7,35 +7,36 @@ using System.Threading.Tasks;
 
 namespace DxFramework
 {
-    class Rujura : Button
+    class Odoshishi : Button
     {
-        public Rujura() : base() 
+        public Odoshishi() : base() 
         {
             deadcount = -1;
             deadFlag = false;
-            exRate = 1;
             this.top = new Vector2(DX.GetRand(1300)+100, DX.GetRand(500)+50);
-            this.GraphName = "resource/img/ルージュラ.png";
-            preSize = this.size;
+            this.GraphName = "resource/img/オドシシ.png";
         }
 
         double deadcount;
-        private double exRate;
-        private Vector2 preSize;
 
         public override void update()
         {
             if (!isVisible) return;
-            this.exRate += 0.01;
             int frsf = deadcounter();
             if (frsf>1)
-                this.GraphName = "resource/img/死んだルージュラ.png";
+                this.GraphName = "resource/img/死んだオドシシ.png";
             if (frsf> 4)
-                this.GraphName = "resource/img/もっと死んだルージュラ.png";
+                this.GraphName = "resource/img/もっと死んだオドシシ.png";
             if (frsf>10)
                 this.isVisible = false;
             if (deadFlag) return;
-            this.size = preSize * exRate;
+
+            top += new Vector2(4,0);
+            if (top.x<0&&top.x>1600)
+            {
+                isVisible = false;
+            }
+
             base.update();
         }
 
@@ -51,13 +52,6 @@ namespace DxFramework
                 return 0;
             deadcount++;
             return (int)deadcount;
-        }
-        public override void draw()
-        {
-            if (!isVisible)
-                return;
-               DX.DrawExtendGraph( (int)top.x, (int)top.y, (int)bottom.x, (int)bottom.y,
-　　　　　　　　　　 graphHandle , DX.TRUE ) ;
         }
 
         public bool deadFlag { get; set; }

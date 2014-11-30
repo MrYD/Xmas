@@ -12,9 +12,11 @@ namespace DxFramework
     {
         public int score;
 
-        public int count;
+        public int rcount;
+        public int ocount;
         public static MenuScene instance { get; private set; }
         public List<Rujura> Santa;
+        public List<Odoshishi> Tonakai;
         public Gun gun;
         public MenuScene()
             : base()
@@ -28,7 +30,9 @@ namespace DxFramework
         {
             instance = this;
             Santa = new List<Rujura>();
-            count = 0;
+            Tonakai = new List<Odoshishi>();
+            rcount = 0;
+            ocount = 0;
             Time = 0;
             instance = this;
             var back = new Graphic(-20);
@@ -49,8 +53,8 @@ namespace DxFramework
             if (Time%50==0)
             {
                 Santa.Add(new Rujura());
-                Santa[count].ComplexActionSender=count;
-                Santa[count].ClickedComplexAction = (object sender) =>
+                Santa[rcount].ComplexActionSender=rcount;
+                Santa[rcount].ClickedComplexAction = (object sender) =>
                 {
                     if (gun.rest <= 0) { }
                     else
@@ -61,7 +65,25 @@ namespace DxFramework
                         score++;
                     }
                 };
-                count++;
+                rcount++;
+            }
+
+            if (Time%50==0)
+            {
+                Tonakai.Add(new Odoshishi());
+                Tonakai[ocount].ComplexActionSender = ocount;
+                Tonakai[ocount].ClickedComplexAction = (object sender) =>
+                {
+                    if (gun.rest <= 0) { }
+                    else
+                    {
+                        Tonakai[(int)sender].dead();
+                        gun.reaction();
+                        gun.rest -= 1;
+                        score++;
+                    }
+                };
+                ocount++;
             }
 
             if (BasicInput.mouse.right.up)
