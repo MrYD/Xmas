@@ -50,7 +50,7 @@ namespace DxFramework
         {
             base.update();
             Time++;
-            if (Time%50==0)
+            if (DX.GetRand(100-Time/50)==0)
             {
                 Santa.Add(new Rujura());
                 Santa[rcount].ComplexActionSender=rcount;
@@ -67,7 +67,7 @@ namespace DxFramework
                 };
                 rcount++;
             }
-            if (Time % 50 == 0)
+            if (Time % 400 == 0)
             {
                 Tonakai.Add(new Odoshishi());
                 Tonakai[ocount].ComplexActionSender = ocount;
@@ -76,10 +76,10 @@ namespace DxFramework
                     if (gun.rest <= 0) { }
                     else
                     {
-                        Santa[(int)sender].dead();
+                        Tonakai[(int)sender].dead();
                         gun.reaction();
                         gun.rest -= 1;
-                        score++;
+                        score--;
                     }
                 };
                 ocount++;

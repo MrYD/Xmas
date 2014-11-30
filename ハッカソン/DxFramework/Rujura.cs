@@ -14,7 +14,7 @@ namespace DxFramework
             deadcount = -1;
             deadFlag = false;
             exRate = 1;
-            this.top = new Vector2(DX.GetRand(1300)+100, DX.GetRand(500)+50);
+            this.top = new Vector2(DX.GetRand(1200)+20, DX.GetRand(500)+20);
             this.GraphName = "resource/img/ルージュラ.png";
             preSize = this.size;
         }

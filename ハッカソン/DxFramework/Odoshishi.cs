@@ -13,7 +13,7 @@ namespace DxFramework
         {
             deadcount = -1;
             deadFlag = false;
-            this.top = new Vector2(DX.GetRand(1300)+100, DX.GetRand(500)+50);
+            this.top = new Vector2(1600, DX.GetRand(500)+20);
             this.GraphName = "resource/img/オドシシ.png";
         }
 
@@ -31,7 +31,7 @@ namespace DxFramework
                 this.isVisible = false;
             if (deadFlag) return;
 
-            top += new Vector2(4,0);
+            top += new Vector2(-4,0);
             if (top.x<0&&top.x>1600)
             {
                 isVisible = false;
