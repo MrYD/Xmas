@@ -38,14 +38,14 @@ namespace DxFramework
             var text = new Text(2);
             text.FontHandle = DX.CreateFontToHandle(null,70,-1);
             text.top = new Vector2(1200,700);
-            text.color = DX.GetColor(200,200,200);
+            text.color = DX.GetColor(240,240,240);
             text.updateAction = () => { text.text = "Score:" + score; };
         }
         public override void update()
         {
             base.update();
             Time++;
-            if (Time%50==0)
+            if (Time%25==0)
             {
                 count++;
                 Santa.Add(new Rujura(0));
