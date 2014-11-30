@@ -22,9 +22,10 @@ namespace DxFramework
             if (DX.DxLib_Init() == -1) return;
             DX.SetDrawScreen(DX.DX_SCREEN_BACK);
             //++++++++++++++++++++++++++initialized dxlib++++++++++++++++++++++++++++
-            var menuscene = new MenuScene();
+            var startscene = new StartScene();
             var gamescene = new GameScene();
-            Scene scene = menuscene;
+            var endscene = new EndScene();
+            Scene scene = gamescene;
             while (DX.ScreenFlip() == 0 && DX.ProcessMessage() == 0 && DX.ClearDrawScreen() == 0)
             {
                 //-----------------------------mainloop---------------------------

@@ -44,15 +44,16 @@
     <Compile Include="DxFrameWork\Button.cs" />
     <Compile Include="DxFrameWork\DrawableBase.cs" />
     <Compile Include="DxFrameWork\DxDLL.cs" />
-    <Compile Include="GameScene.cs" />
+    <Compile Include="EndScene.cs" />
     <Compile Include="DxFrameWork\Graphic.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="main.cs" />
-    <Compile Include="MenuScene.cs" />
+    <Compile Include="GameScene.cs" />
     <Compile Include="DxFrameWork\Scene.cs" />
     <Compile Include="DxFrameWork\test.cs" />
     <Compile Include="DxFrameWork\Vector2.cs" />
     <Compile Include="Rujura.cs" />
+    <Compile Include="StartScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

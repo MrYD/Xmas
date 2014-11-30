@@ -8,7 +8,7 @@ namespace DxFramework
 {
    abstract class Scene
     {
-        public Scene NextScene { get;protected set; }
+        public Scene NextScene { get;set; }
         SortedDictionary<int, List<DrawableBase>> DrawableList;
         public Scene()
         {

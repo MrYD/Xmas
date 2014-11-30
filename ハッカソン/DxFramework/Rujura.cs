@@ -36,6 +36,10 @@ namespace DxFramework
                 this.isVisible = false;
             if (deadFlag) return;
             this.size = preSize * exRate;
+            if (exRate >= 3)
+            {
+                GameScene.instance.NextScene = EndScene.instance;
+            }
             base.update();
         }
 
@@ -61,5 +65,7 @@ namespace DxFramework
         }
 
         public bool deadFlag { get; set; }
+
+        public bool GameEndFlage { get; set; }
     }
 }
