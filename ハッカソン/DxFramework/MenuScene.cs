@@ -15,6 +15,7 @@ namespace DxFramework
         public int count;
         public static MenuScene instance { get; private set; }
         public List<Rujura> Santa;
+        public Gun gun;
         public MenuScene()
             : base()
         {
@@ -22,6 +23,7 @@ namespace DxFramework
             instance = this;
             score = 0;
         }
+
         public override void init()
         {
             instance = this;
@@ -30,10 +32,10 @@ namespace DxFramework
             count = 0;
             Time = 0;
             instance = this;
-            var back = new Graphic(-1);
+            var back = new Graphic(-20);
             back.GraphName = "resource/img/back.png";
-            var gun = new Graphic(1);
-            gun.GraphName = "resource/img/guns.png";
+            gun = new Gun(1);
+            gun.GraphName = "resource/img/gun.png";
 
             var text = new Text(2);
             text.FontHandle = DX.CreateFontToHandle(null,70,-1);
@@ -54,10 +56,18 @@ namespace DxFramework
                 Santa[count].ClickedComplexAction = (object sender) =>
                 {
                     Santa[(int)sender].dead();
+                    gun.reaction();
+                    gun.rest -= 1;
                     score++;
                 };
                 Santa[count].GraphName = "resource/img/ルージュラ.png";
             }
+
+            if (BasicInput.mouse.right.up)
+            {
+                gun.action();
+            }
+
         }
         public int Time { get; set; }
     }
