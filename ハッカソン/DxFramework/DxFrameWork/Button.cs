@@ -93,7 +93,6 @@ namespace DxFramework
 
         public override void update()
         {
-            base.update();
             if (isClickedOn()) draggedFlag = true;
             if (BasicInput.mouse.left.pressed == false) draggedFlag = false;
             if (draggableFlag && draggedFlag)
