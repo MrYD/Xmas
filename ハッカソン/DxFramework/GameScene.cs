@@ -17,7 +17,11 @@ namespace DxFramework
         public List<Rujura> Santa;
         public List<Odoshishi> Tonakai;
         public Gun gun;
+        public int bgm;
+        private Button scope;
+
         public GameScene()
+
             : base()
         {
             init();
@@ -44,11 +48,20 @@ namespace DxFramework
             text.top = new Vector2(1200, 700);
             text.color = DX.GetColor(240, 240, 240);
             text.updateAction = () => { text.text = "Score:" + score; };
+            bgm = DX.LoadSoundMem("resource/se/bgm.mp3");
+
+            scope = new Button();
+            scope.GraphName = "resource/img/スコープ.png";
+
+            DX.PlaySoundMem(bgm, DX.DX_PLAYTYPE_LOOP);
+
         }
         public override void update()
         {
             base.update();
             Time++;
+
+            scope.mid = BasicInput.mouse.position;
 
             int a = 100 - Time / 50;
             if (a <= 50)
@@ -57,7 +70,7 @@ namespace DxFramework
             }
             if (DX.GetRand(a) == 0)
             {
-                Santa.Add(new Rujura(-rcount));
+                Santa.Add(new Rujura(-rcount-1));
                 Santa[rcount].ComplexActionSender = rcount;
                 Santa[rcount].ClickedComplexAction = (object sender) =>
                 {
@@ -89,11 +102,13 @@ namespace DxFramework
             {
                 gun.rest--;
                 gun.reaction();
+                DX.PlaySoundFile("resource/se/gun.mp3",DX.DX_PLAYTYPE_BACK);
             }
             if (BasicInput.mouse.right.up)
             {
                 gun.action();
             }
+
 
         }
         public int Time { get; set; }
