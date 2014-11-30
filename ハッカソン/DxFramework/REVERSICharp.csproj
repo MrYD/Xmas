@@ -52,6 +52,7 @@
     <Compile Include="DxFrameWork\Scene.cs" />
     <Compile Include="DxFrameWork\test.cs" />
     <Compile Include="DxFrameWork\Vector2.cs" />
+    <Compile Include="Odoshishi.cs" />
     <Compile Include="Rujura.cs" />
     <Compile Include="StartScene.cs" />
   </ItemGroup>
