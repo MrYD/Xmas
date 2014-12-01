@@ -1,0 +1,6 @@
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\bin\Debug\DxFramework.exe.config
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\obj\Debug\DxFramework.exe
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\obj\Debug\DxFramework.pdb
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\bin\Debug\DxFramework.exe
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\bin\Debug\DxFramework.pdb
+C:\Users\Main\Documents\Xmas\ハッカソン\DxFramework\obj\Debug\MerryXmas.csprojResolveAssemblyReference.cache

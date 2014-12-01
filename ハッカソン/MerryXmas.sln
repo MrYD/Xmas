@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REVERSICharp", "DxFramework\REVERSICharp.csproj", "{83D6DF28-01CA-4CC6-AE98-5BB5F319C19C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerryXmas", "DxFramework\MerryXmas.csproj", "{83D6DF28-01CA-4CC6-AE98-5BB5F319C19C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,11 +9,19 @@ namespace DxFramework
     abstract class DrawableBase
     {
         static Action<DrawableBase> autoAddFunc;
+        static Action<DrawableBase> autoRemoveFunc;
         private int _layer;
-        public int layer 
+        public int layer
         {
-            get {return _layer; }
-            set { _layer = value; }
+            get { return _layer; }
+            set
+            {
+                if (layer == value) return;
+                _layer = value;
+                if (autoRemoveFunc != null) autoRemoveFunc(this);
+                if (autoAddFunc != null) autoAddFunc(this);
+
+            }
         }
         public bool isVisible { get; set; }
         public DrawableBase(int layer)
@@ -23,7 +31,12 @@ namespace DxFramework
             if (autoAddFunc != null) autoAddFunc(this);
         }
         public static void setAutoAddFunc(Action<DrawableBase> addlistfunc) { autoAddFunc = addlistfunc; }
+        public static void setAutoRemoveFunc(Action<DrawableBase> removelistfunc) { autoRemoveFunc = removelistfunc; }
         abstract public void draw();
         abstract public void update();
+        public void delete()
+        {
+            if (autoRemoveFunc != null) autoRemoveFunc(this);
+        }
     }
 }

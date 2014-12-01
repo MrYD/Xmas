@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DxFramework.DxFrameWork
+namespace DxFramework
 {
     class Text:DrawableBase
     {

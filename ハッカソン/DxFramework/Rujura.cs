@@ -14,7 +14,7 @@ namespace DxFramework
             deadcount = -1;
             deadFlag = false;
             exRate = 1;
-            this.top = new Vector2(DX.GetRand(1200)+20, DX.GetRand(500)+20);
+            this.top = new Vector2(DX.GetRand(1000)+20, DX.GetRand(500)+20);
             this.GraphName = "resource/img/ルージュラ.png";
             preSize = this.size;
         }
@@ -30,19 +30,23 @@ namespace DxFramework
             int frsf = deadcounter();
             if (frsf>1)
                 this.GraphName = "resource/img/死んだルージュラ.png";
+                this.layer = -10;
             if (frsf> 4)
                 this.GraphName = "resource/img/もっと死んだルージュラ.png";
-            if (frsf>10)
-                this.isVisible = false;
+            if (frsf > 10)
+            { this.delete(); return; }
             if (deadFlag) return;
+         
             this.size = preSize * exRate;
-            if (exRate >= 3)
+            this.layer = -10 + (int) exRate * 2;
+            
+            if (exRate >= 5)
             {
+                EndScene.instance.wholeInit();
                 GameScene.instance.NextScene = EndScene.instance;
             }
             base.update();
         }
-
         public void dead()
         {
             deadFlag = true;
@@ -65,7 +69,6 @@ namespace DxFramework
         }
 
         public bool deadFlag { get; set; }
-
         public bool GameEndFlage { get; set; }
     }
 }

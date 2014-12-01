@@ -1,5 +1,4 @@
-﻿using DxFramework.DxFrameWork;
-using DxLibDLL;
+﻿using DxLibDLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +17,18 @@ namespace DxFramework
         {
             reactioncount = 0;
             rest = 5;
-
+            top = new Vector2(BasicInput.mouse.position.x + 30 + reactioncount, 700 + reactioncount);
             for (int i = 0; i < rests.Length; i++)
             {
                 rests[i] = new Graphic(1);
                 rests[i].GraphName = "resource/img/bullet.png";
-                rests[i].top = new Vector2(50+i*50,600);
+                rests[i].top = new Vector2(50 + i * 50, 600);
             }
         }
-
         public override void update()
         {
-            top = new Vector2(BasicInput.mouse.position.x + 30+reactioncount, 700+reactioncount);
-            reactioncount /=1.3;
+            top = new Vector2(BasicInput.mouse.position.x + 30 + reactioncount, 700 + reactioncount);
+            reactioncount /= 1.3;
 
             for (int i = 0; i < rests.Length; i++)
             {
@@ -42,7 +40,6 @@ namespace DxFramework
 
             base.update();
         }
-
         public void reaction()
         {
             reactioncount += 20;

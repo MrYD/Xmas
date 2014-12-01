@@ -25,12 +25,13 @@ namespace DxFramework
             var startscene = new StartScene();
             var gamescene = new GameScene();
             var endscene = new EndScene();
-            Scene scene = gamescene;
+            Scene scene = startscene;
+            scene.wholeInit();
             while (DX.ScreenFlip() == 0 && DX.ProcessMessage() == 0 && DX.ClearDrawScreen() == 0)
             {
                 //-----------------------------mainloop---------------------------
                 BasicInput.update();
-                scene.update();
+                scene.wholeUpdate();
                 DX.ClearDrawScreen();
                 scene.draw();
                 if (scene != scene.NextScene)

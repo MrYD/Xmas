@@ -1,5 +1,4 @@
-﻿using DxFramework.DxFrameWork;
-using DxLibDLL;
+﻿using DxLibDLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +14,8 @@ namespace DxFramework
         private Text text;
         private bool flag;
 
-        public EndScene()
-            : base()
+        public EndScene(): base()
         {
-            init();
             instance = this;
         }
         public override void init()
@@ -31,17 +28,21 @@ namespace DxFramework
             text.color = DX.GetColor(240, 240, 240);
             text.updateAction = () => { text.text = "Score:" + GameScene.instance.score; };
             flag = true;
-
         }
         public override void update()
         {
            if(flag) {
-               DX.StopSoundMem(GameScene.instance.bgm);
+            DX.StopSoundMem(GameScene.instance.bgm);
             DX.PlaySoundFile("resource/se/kiss.mp3", DX.DX_PLAYTYPE_NORMAL);
             flag = false;
         }
-            base.update();
+           if (BasicInput.mouse.left.down)
+           {
+               StartScene.instance.wholeInit();
+               NextScene = StartScene.instance;
+           }
         }
-        public static EndScene instance { get; set; }
+
+        public static EndScene instance { get; private set;}
     }
 }
