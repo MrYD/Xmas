@@ -31,20 +31,25 @@ namespace DxFramework
             rcount = 0;
             ocount = 0;
             Time = 0;
+            
             var back = new Graphic(-11);
             back.GraphName = "resource/img/back.png";
+          
             gun = new Gun(1);
             gun.GraphName = "resource/img/gun.png";
+            
             var text = new Text(2);
             text.FontHandle = DX.CreateFontToHandle(null, 70, -1);
             text.top = new Vector2(1200, 700);
             text.color = DX.GetColor(240, 240, 240);
             text.updateAction = () => { text.text = "Score:" + score; };
+          
             bgm = DX.LoadSoundMem("resource/se/bgm.mp3");
 
             scope = new Button();
             scope.GraphName = "resource/img/スコープ.png";
             scope.mid = BasicInput.mouse.position;
+          
             DX.PlaySoundMem(bgm, DX.DX_PLAYTYPE_LOOP);
         }
         public override void update()
@@ -90,9 +95,7 @@ namespace DxFramework
             }
             if (BasicInput.mouse.left.up)
             {
-                gun.rest--;
-                gun.reaction();
-                DX.PlaySoundFile("resource/se/gun.mp3",DX.DX_PLAYTYPE_BACK);
+                gun.shoot();
             }
             if (BasicInput.mouse.right.up)
             {

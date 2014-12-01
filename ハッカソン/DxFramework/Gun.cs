@@ -49,7 +49,15 @@ namespace DxFramework
         {
             rest = 5;
         }
-
+        public void shoot()
+        {
+            if (rest > 0)
+            {
+                rest--;
+                reaction();
+                DX.PlaySoundFile("resource/se/gun.mp3", DX.DX_PLAYTYPE_BACK);
+            }
+        }
         public int rest { get; set; }
     }
 }

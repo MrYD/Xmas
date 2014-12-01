@@ -16,9 +16,9 @@ namespace DxFramework
             get { return _layer; }
             set
             {
-                if (layer == value) return;
-                _layer = value;
+                if (_layer == value) return;
                 if (autoRemoveFunc != null) autoRemoveFunc(this);
+                _layer = value;
                 if (autoAddFunc != null) autoAddFunc(this);
 
             }
@@ -27,7 +27,7 @@ namespace DxFramework
         public DrawableBase(int layer)
         {
             isVisible = true;
-            this.layer = layer;
+            this._layer = layer;
             if (autoAddFunc != null) autoAddFunc(this);
         }
         public static void setAutoAddFunc(Action<DrawableBase> addlistfunc) { autoAddFunc = addlistfunc; }

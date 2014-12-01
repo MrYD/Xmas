@@ -46,11 +46,11 @@ namespace DxFramework
         {
             foreach (KeyValuePair<int, List<DrawableBase>> l in DrawableList.ToArray())
             {
-                foreach (int i in Enumerable.Range(0, l.Value.Count()))
+                for (int i = 0; i < l.Value.Count();i++ )
                 {
-                    try { l.Value[i].update(); }
-                    catch { }
+                    if (l.Value[i].isVisible) l.Value[i].update();
                 }
+               
             }
         }
         public abstract void update();
@@ -79,11 +79,7 @@ namespace DxFramework
         }
         public void removeChild(DrawableBase obj)
         {
-            //DrawableList[obj.layer].Remove(obj);
-            foreach (var l in DrawableList)
-            {
-                l.Value.Remove(obj);
-            }
+                DrawableList[obj.layer].Remove(obj);
         }
     }
 }

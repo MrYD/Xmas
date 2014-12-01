@@ -22,6 +22,7 @@ namespace DxFramework
         double deadcount;
         private double exRate;
         private Vector2 preSize;
+        private Vector2 postSize;
 
         public override void update()
         {
@@ -30,14 +31,17 @@ namespace DxFramework
             int frsf = deadcounter();
             if (frsf>1)
                 this.GraphName = "resource/img/死んだルージュラ.png";
+            this.size = postSize*0.9;
                 this.layer = -10;
             if (frsf> 4)
                 this.GraphName = "resource/img/もっと死んだルージュラ.png";
+            this.size = postSize*0.8;
             if (frsf > 10)
             { this.delete(); return; }
             if (deadFlag) return;
          
             this.size = preSize * exRate;
+            this.postSize = this.size;
             this.layer = -10 + (int) exRate * 2;
             
             if (exRate >= 5)
